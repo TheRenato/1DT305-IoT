@@ -1,5 +1,6 @@
 import network
 import pycom
+import ubinascii
 
 pycom.heartbeat(False)
 
@@ -22,7 +23,7 @@ while (count<10):
         print("----")
         print(bluetooth.resolve_adv_data(get_adv.data, network.Bluetooth().ADV_NAME_CMPL))
         print("----")
-        print(get_adv.mac)
+        print(ubinascii.hexlify(get_adv.mac))
         print("----")
         print(bluetooth.ADV_NAME_CMPL)
         print("----")
