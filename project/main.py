@@ -1,7 +1,6 @@
 from machine import Pin
 import time
 import pycom
-# configure the I2C bus
 
 pycom.heartbeat(False)
 
@@ -41,7 +40,6 @@ ledSwitcher(4)
 time.sleep(4)
 
 while True:
-  #  Magnet
   magnetValue = magnetPin()
 
   if (isMagnetActive(magnetPin())):
