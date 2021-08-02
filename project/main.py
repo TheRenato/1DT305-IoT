@@ -11,6 +11,8 @@ ledRed = Pin('P20', Pin.OUT, pull = Pin.PULL_DOWN)
 
 def isMagnetActive(magnetValue):
     return magnetValue<1
+
+# A led switcher depending the value. 
 def ledSwitcher(ledValue):
     if ledValue == 0:
         ledGreen.value(0)
@@ -40,8 +42,6 @@ ledSwitcher(4)
 time.sleep(4)
 
 while True:
-  magnetValue = magnetPin()
-
   if (isMagnetActive(magnetPin())):
       print("Everything is fine now")
       ledSwitcher(1)
