@@ -114,7 +114,7 @@ pybytes.send_signal(1, "Close")
 ```
 in the code above is sending a string with the word close. When the door is open it will send the string "Open" and when it has past 10 minutes since the door was opened and it still is. Then it will send the string "Warning Open".
 
-**isMagnetActive** is a method/function that converts the sensor data to a boolean.
+**isMagnetActive** is a method/function that converts the sensor data to a Boolean.
 
 **ledSwitcher** is also a method/function that receives a int to turn on or off the LED. More details can be checked in the [repo](https://github.com/TheRenato/1DT305-IoT/tree/main/project).
 
