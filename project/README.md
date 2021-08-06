@@ -85,28 +85,24 @@ But if you want to take this to production you can use this circuit diagram. But
 Here is the main part of the code. If you want to check the complete code look inside this [repo](https://github.com/TheRenato/1DT305-IoT/tree/main/project).
 ```python=
 while True:
-if (isMagnetActive(magnetPin())):
-# Everything is fine becuase the door is close.
-print("Everything is fine now")
-ledSwitcher(1)
-pybytes.send_signal(1, "Close")
-while isMagnetActive(magnetPin()):
-time.sleep(5)
-else :
-# We try to inform that the door is open.
-print("The door is open")
-ledSwitcher(2)
-pybytes.send_signal(1, "Open")
-counter = 0
-while not (isMagnetActive(magnetPin())):
-time.sleep(1)
-counter = counter + 1
-if (counter == 600):
-# We warn that the door has been open some time now.
-print("How long should it be open?")
-ledSwitcher(3)
-pybytes.send_signal(1, "Warning Open")
-
+  if (isMagnetActive(magnetPin())):
+      print("Everything is fine now")
+      ledSwitcher(1)
+      pybytes.send_signal(1, "Close")
+      while isMagnetActive(magnetPin()):
+          time.sleep(5)
+  else :
+      print("The door is open")
+      ledSwitcher(2)
+      pybytes.send_signal(1, "Open")
+      counter = 0
+      while not (isMagnetActive(magnetPin())):
+          time.sleep(1)
+          counter = counter + 1
+          if (counter == 600):
+              print("How long should it be open?")
+              ledSwitcher(3)
+              pybytes.send_signal(1, "Warning Open")
 ```
 
 Here you can see that every event is the user informed in 3 ways. First in console, then by turning on a led and last by publishing it in the cloud to the Pycom service Pybytes.
